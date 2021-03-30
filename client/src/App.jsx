@@ -23,6 +23,9 @@ function App(props) {
   let nlWest = data.filter((team) => team.group.name === "NL West");
   let nlEast = data.filter((team) => team.group.name === "NL East");
   let nlCentral = data.filter((team) => team.group.name === "NL Central");
+  let alWest = data.filter((team) => team.group.name === "AL West");
+  let alEast = data.filter((team) => team.group.name === "AL East");
+  let alCentral = data.filter((team) => team.group.name === "AL Central");
 
   console.log(nlCentral);
   return (
@@ -46,6 +49,30 @@ function App(props) {
       <p>NL East</p>
       <br></br>
       {nlCentral.map((team) => (
+        <p key={team.team.id}>
+          {team.team.name}
+          {team.games.win.total}
+        </p>
+      ))}
+      <p>AL West</p>
+      <br></br>
+      {alWest.map((team) => (
+        <p key={team.team.id}>
+          {team.team.name}
+          {team.games.win.total}
+        </p>
+      ))}
+      <p>AL Central</p>
+      <br></br>
+      {alCentral.map((team) => (
+        <p key={team.team.id}>
+          {team.team.name}
+          {team.games.win.total}
+        </p>
+      ))}
+      <p>AL East</p>
+      <br></br>
+      {alEast.map((team) => (
         <p key={team.team.id}>
           {team.team.name}
           {team.games.win.total}
