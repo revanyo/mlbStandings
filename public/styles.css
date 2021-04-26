@@ -1,0 +1,34 @@
+.left {
+  float: left;
+  width: auto;
+  height: auto;
+}
+
+.right {
+  float: left;
+  width: auto;
+  height: auto;
+}
+
+.middle {
+  float: left;
+  width: auto;
+  height: auto;
+  background-color: aquamarine;
+}
+
+.right_left {
+  float: left;
+  width: auto;
+  height: auto;
+}
+.right_middle {
+  float: left;
+  width: auto;
+  height: auto;
+}
+.right_right {
+  float: left;
+  width: auto;
+  height: auto;
+}

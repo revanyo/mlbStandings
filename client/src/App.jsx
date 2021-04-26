@@ -5,7 +5,7 @@ function App(props) {
   const options = {
     method: "GET",
     url: "https://api-baseball.p.rapidapi.com/standings",
-    params: { league: "1", season: "2020" },
+    params: { league: "1", season: "2021" },
     headers: {
       "x-rapidapi-key": "916506272cmshfc8573fdda60a55p133c1ajsnacc6487e2f26",
       "x-rapidapi-host": "api-baseball.p.rapidapi.com",
@@ -20,64 +20,65 @@ function App(props) {
     });
   }, []);
 
-  let nlWest = data.filter((team) => team.group.name === "NL West");
-  let nlEast = data.filter((team) => team.group.name === "NL East");
-  let nlCentral = data.filter((team) => team.group.name === "NL Central");
-  let alWest = data.filter((team) => team.group.name === "AL West");
-  let alEast = data.filter((team) => team.group.name === "AL East");
-  let alCentral = data.filter((team) => team.group.name === "AL Central");
+  let data_filtered = Array.from(new Set(data.map((a) => a.team.name))).map(
+    (name) => {
+      return data.find((a) => a.team.name === name);
+    }
+  );
 
-  console.log(nlCentral);
+  let first = data.filter((team) => team.position === 1);
+  let first_unique = Array.from(new Set(first.map((a) => a.team.name))).map(
+    (name) => {
+      return first.find((a) => a.team.name === name);
+    }
+  );
+
+  let second = data.filter((team) => team.position === 2);
+  let second_unique = Array.from(new Set(second.map((a) => a.team.name))).map(
+    (name) => {
+      return second.find((a) => a.team.name === name);
+    }
+  );
+
+  let third = data.filter((team) => team.position === 2);
+  let third_unique = Array.from(new Set(third.map((a) => a.team.name))).map(
+    (name) => {
+      return third.find((a) => a.team.name === name);
+    }
+  );
+
+  let fourth = data.filter((team) => team.position === 2);
+  let fourth_unique = Array.from(new Set(fourth.map((a) => a.team.name))).map(
+    (name) => {
+      return fourth.find((a) => a.team.name === name);
+    }
+  );
+
+  let fifth = data.filter((team) => team.position === 2);
+  let fifth_unique = Array.from(new Set(fifth.map((a) => a.team.name))).map(
+    (name) => {
+      return fifth.find((a) => a.team.name === name);
+    }
+  );
+  console.log(data_filtered);
   return (
     <div>
-      <p>NL West</p>
-      <br></br>
-      {nlWest.map((team) => (
-        <p key={team.team.id}>
-          {team.team.name}
-          {team.games.win.total}
-        </p>
-      ))}
-      <p>NL Central</p>
-      <br></br>
-      {nlEast.map((team) => (
-        <p key={team.team.id}>
-          {team.team.name}
-          {team.games.win.total}
-        </p>
-      ))}
-      <p>NL East</p>
-      <br></br>
-      {nlCentral.map((team) => (
-        <p key={team.team.id}>
-          {team.team.name}
-          {team.games.win.total}
-        </p>
-      ))}
-      <p>AL West</p>
-      <br></br>
-      {alWest.map((team) => (
-        <p key={team.team.id}>
-          {team.team.name}
-          {team.games.win.total}
-        </p>
-      ))}
-      <p>AL Central</p>
-      <br></br>
-      {alCentral.map((team) => (
-        <p key={team.team.id}>
-          {team.team.name}
-          {team.games.win.total}
-        </p>
-      ))}
-      <p>AL East</p>
-      <br></br>
-      {alEast.map((team) => (
-        <p key={team.team.id}>
-          {team.team.name}
-          {team.games.win.total}
-        </p>
-      ))}
+      <table>
+        <tr>
+          {first_unique.map((team) => (
+            <td key={team.team.id}>
+              <img src={team.team.logo} width="100" height="132" />
+            </td>
+          ))}
+        </tr>
+        <tr>
+          {second_unique.map((team) => (
+            <td key={team.team.id}>
+              <img src={team.team.logo} width="100" height="132" />
+            </td>
+          ))}
+        </tr>
+      </table>
     </div>
   );
 }
