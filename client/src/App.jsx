@@ -13,68 +13,131 @@ function App(props) {
   };
 
   const [data, setData] = useState([]);
+  const [first, setFirst] = useState([]);
+  const [second, setSecond] = useState([]);
+  const [third, setThird] = useState([]);
+  const [fourth, setFourth] = useState([]);
+  const [fifth, setFifth] = useState([]);
 
   useEffect(() => {
-    axios.request(options).then((res) => {
-      setData(res.data.response[0]);
-    });
+    async function fetchData() {
+      const response = await axios.request(options);
+      const data = response.data.response[0];
+      setData(data);
+
+      let nlWest = data
+        .filter((a) => a.group.name === "NL West")
+        .sort((a, b) => b.games.win.percentage - a.games.win.percentage);
+
+      let nlCentral = data
+        .filter((a) => a.group.name === "NL Central")
+        .sort((a, b) => b.games.win.percentage - a.games.win.percentage);
+
+      let nlEast = data
+        .filter((a) => a.group.name === "NL East")
+        .sort((a, b) => b.games.win.percentage - a.games.win.percentage);
+
+      let alWest = data
+        .filter((a) => a.group.name === "AL West")
+        .sort((a, b) => b.games.win.percentage - a.games.win.percentage);
+
+      let alCentral = data
+        .filter((a) => a.group.name === "AL Central")
+        .sort((a, b) => b.games.win.percentage - a.games.win.percentage);
+
+      let alEast = data
+        .filter((a) => a.group.name === "AL East")
+        .sort((a, b) => b.games.win.percentage - a.games.win.percentage);
+
+      let first_array = new Array(
+        nlWest[0],
+        nlCentral[0],
+        nlEast[0],
+        alWest[0],
+        alCentral[0],
+        alEast[0]
+      );
+
+      let second_array = new Array(
+        nlWest[1],
+        nlCentral[1],
+        nlEast[1],
+        alWest[1],
+        alCentral[1],
+        alEast[1]
+      );
+      let third_array = new Array(
+        nlWest[2],
+        nlCentral[2],
+        nlEast[2],
+        alWest[2],
+        alCentral[2],
+        alEast[2]
+      );
+      let fourth_array = new Array(
+        nlWest[3],
+        nlCentral[3],
+        nlEast[3],
+        alWest[3],
+        alCentral[3],
+        alEast[3]
+      );
+      let fifth_array = new Array(
+        nlWest[4],
+        nlCentral[4],
+        nlEast[4],
+        alWest[4],
+        alCentral[4],
+        alEast[4]
+      );
+      setFirst(first_array);
+      setSecond(second_array);
+      setThird(third_array);
+      setFourth(fourth_array);
+      setFifth(fifth_array);
+    }
+    fetchData();
   }, []);
-
-  let data_filtered = Array.from(new Set(data.map((a) => a.team.name))).map(
-    (name) => {
-      return data.find((a) => a.team.name === name);
-    }
-  );
-
-  let first = data.filter((team) => team.position === 1);
-  let first_unique = Array.from(new Set(first.map((a) => a.team.name))).map(
-    (name) => {
-      return first.find((a) => a.team.name === name);
-    }
-  );
-
-  let second = data.filter((team) => team.position === 2);
-  let second_unique = Array.from(new Set(second.map((a) => a.team.name))).map(
-    (name) => {
-      return second.find((a) => a.team.name === name);
-    }
-  );
-
-  let third = data.filter((team) => team.position === 2);
-  let third_unique = Array.from(new Set(third.map((a) => a.team.name))).map(
-    (name) => {
-      return third.find((a) => a.team.name === name);
-    }
-  );
-
-  let fourth = data.filter((team) => team.position === 2);
-  let fourth_unique = Array.from(new Set(fourth.map((a) => a.team.name))).map(
-    (name) => {
-      return fourth.find((a) => a.team.name === name);
-    }
-  );
-
-  let fifth = data.filter((team) => team.position === 2);
-  let fifth_unique = Array.from(new Set(fifth.map((a) => a.team.name))).map(
-    (name) => {
-      return fifth.find((a) => a.team.name === name);
-    }
-  );
-  console.log(data_filtered);
+  console.log(first);
   return (
     <div>
       <table>
         <tr>
-          {first_unique.map((team) => (
+          {first.map((team) => (
             <td key={team.team.id}>
-              <img src={team.team.logo} width="100" height="132" />
+              <img src={team.team.logo} width="200px" height="100px" />
             </td>
           ))}
         </tr>
+        <br></br>
         <tr>
-          {second_unique.map((team) => (
+          {second.map((team) => (
             <td key={team.team.id}>
-              <img src={team.team.logo} width="100" height="132" />
+              <img src={team.team.logo} width="200px" height="100px" />
+            </td>
+          ))}
+        </tr>
+        <br></br>
+        <tr>
+          {third.map((team) => (
+            <td key={team.team.id}>
+              <img src={team.team.logo} width="200px" height="100px" />
+            </td>
+          ))}
+        </tr>
+        <br></br>
+        <tr>
+          {fourth.map((team) => (
+            <td key={team.team.id}>
+              <img src={team.team.logo} width="200px" height="100px" />
+            </td>
+          ))}
+        </tr>
+        <br></br>
+        <tr>
+          {fifth.map((team) => (
+            <td key={team.team.id}>
+              <img src={team.team.logo} width="200px" height="100px" />
             </td>
           ))}
         </tr>
