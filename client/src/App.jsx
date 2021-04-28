@@ -18,6 +18,8 @@ function App(props) {
   const [third, setThird] = useState([]);
   const [fourth, setFourth] = useState([]);
   const [fifth, setFifth] = useState([]);
+  const [winTotals, setWinTotals] = useState(null);
+  const [loseTotals, setLoseTotals] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -101,11 +103,16 @@ function App(props) {
   console.log(first);
   return (
     <div>
+      <h1>MLB Standings</h1>
       <table>
         <tr>
           {first.map((team) => (
             <td key={team.team.id}>
               <img
+                onClick={() => {
+                  setWinTotals("Wins " + team.games.win.total);
+                  setLoseTotals("Losses " + team.games.lose.total);
+                }}
                 src={`/images/${team.team.name}.png`}
                 width="200px"
                 height="100px"
@@ -118,6 +125,10 @@ function App(props) {
           {second.map((team) => (
             <td key={team.team.id}>
               <img
+                onClick={() => {
+                  setWinTotals("Wins " + team.games.win.total);
+                  setLoseTotals("Losses " + team.games.lose.total);
+                }}
                 src={`/images/${team.team.name}.png`}
                 width="200px"
                 height="100px"
@@ -130,6 +141,10 @@ function App(props) {
           {third.map((team) => (
             <td key={team.team.id}>
               <img
+                onClick={() => {
+                  setWinTotals("Wins " + team.games.win.total);
+                  setLoseTotals("Losses " + team.games.lose.total);
+                }}
                 src={`/images/${team.team.name}.png`}
                 width="200px"
                 height="100px"
@@ -142,6 +157,10 @@ function App(props) {
           {fourth.map((team) => (
             <td key={team.team.id}>
               <img
+                onClick={() => {
+                  setWinTotals("Wins " + team.games.win.total);
+                  setLoseTotals("Losses " + team.games.lose.total);
+                }}
                 src={`/images/${team.team.name}.png`}
                 width="200px"
                 height="100px"
@@ -154,6 +173,10 @@ function App(props) {
           {fifth.map((team) => (
             <td key={team.team.id}>
               <img
+                onClick={() => {
+                  setWinTotals("Wins " + team.games.win.total);
+                  setLoseTotals("Losses " + team.games.lose.total);
+                }}
                 src={`/images/${team.team.name}.png`}
                 width="200px"
                 height="100px"
@@ -162,6 +185,9 @@ function App(props) {
           ))}
         </tr>
       </table>
+      <p>
+        Record: {winTotals}, {loseTotals}
+      </p>
     </div>
   );
 }
