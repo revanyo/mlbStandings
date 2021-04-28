@@ -98,14 +98,18 @@ function App(props) {
     }
     fetchData();
   }, []);
-  console.log(first);
+  console.log(data);
   return (
     <div>
       <table>
         <tr>
           {first.map((team) => (
             <td key={team.team.id}>
-              <img src={team.team.logo} width="200px" height="100px" />
+              <img
+                src={`/images/${team.team.name}.png`}
+                width="200px"
+                height="100px"
+              />
             </td>
           ))}
         </tr>
@@ -113,7 +117,11 @@ function App(props) {
         <tr>
           {second.map((team) => (
             <td key={team.team.id}>
-              <img src={team.team.logo} width="200px" height="100px" />
+              <img
+                src={`/images/${team.team.name}.png`}
+                width="200px"
+                height="100px"
+              />
             </td>
           ))}
         </tr>
@@ -121,7 +129,11 @@ function App(props) {
         <tr>
           {third.map((team) => (
             <td key={team.team.id}>
-              <img src={team.team.logo} width="200px" height="100px" />
+              <img
+                src={`/images/${team.team.name}.png`}
+                width="200px"
+                height="100px"
+              />
             </td>
           ))}
         </tr>
@@ -129,7 +141,11 @@ function App(props) {
         <tr>
           {fourth.map((team) => (
             <td key={team.team.id}>
-              <img src={team.team.logo} width="200px" height="100px" />
+              <img
+                ssrc={`/images/${team.team.name}.png`}
+                width="200px"
+                height="100px"
+              />
             </td>
           ))}
         </tr>
@@ -137,7 +153,11 @@ function App(props) {
         <tr>
           {fifth.map((team) => (
             <td key={team.team.id}>
-              <img src={team.team.logo} width="200px" height="100px" />
+              <img
+                src={`/images/${team.team.name}.png`}
+                width="200px"
+                height="100px"
+              />
             </td>
           ))}
         </tr>
