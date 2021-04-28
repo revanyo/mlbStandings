@@ -100,7 +100,7 @@ function App(props) {
     }
     fetchData();
   }, []);
-  console.log(first);
+
   return (
     <div>
       <h1>MLB Standings</h1>
@@ -110,7 +110,7 @@ function App(props) {
             <td key={team.team.id}>
               <img
                 onClick={() => {
-                  setWinTotals("Wins " + team.games.win.total);
+                  setWinTotals("Wins " + team.games.win.total +',');
                   setLoseTotals("Losses " + team.games.lose.total);
                 }}
                 src={`/images/${team.team.name}.png`}
@@ -126,7 +126,7 @@ function App(props) {
             <td key={team.team.id}>
               <img
                 onClick={() => {
-                  setWinTotals("Wins " + team.games.win.total);
+                  setWinTotals("Wins " + team.games.win.total +',');
                   setLoseTotals("Losses " + team.games.lose.total);
                 }}
                 src={`/images/${team.team.name}.png`}
@@ -142,7 +142,7 @@ function App(props) {
             <td key={team.team.id}>
               <img
                 onClick={() => {
-                  setWinTotals("Wins " + team.games.win.total);
+                  setWinTotals("Wins " + team.games.win.total+',');
                   setLoseTotals("Losses " + team.games.lose.total);
                 }}
                 src={`/images/${team.team.name}.png`}
@@ -158,7 +158,7 @@ function App(props) {
             <td key={team.team.id}>
               <img
                 onClick={() => {
-                  setWinTotals("Wins " + team.games.win.total);
+                  setWinTotals("Wins " + team.games.win.total +',');
                   setLoseTotals("Losses " + team.games.lose.total);
                 }}
                 src={`/images/${team.team.name}.png`}
@@ -174,7 +174,7 @@ function App(props) {
             <td key={team.team.id}>
               <img
                 onClick={() => {
-                  setWinTotals("Wins " + team.games.win.total);
+                  setWinTotals("Wins " + team.games.win.total +',');
                   setLoseTotals("Losses " + team.games.lose.total);
                 }}
                 src={`/images/${team.team.name}.png`}
@@ -186,7 +186,7 @@ function App(props) {
         </tr>
       </table>
       <p>
-        Record: {winTotals}, {loseTotals}
+        Record: {winTotals}  {loseTotals}
       </p>
     </div>
   );
