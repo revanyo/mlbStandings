@@ -98,7 +98,7 @@ function App(props) {
     }
     fetchData();
   }, []);
-  console.log(data);
+  console.log(first);
   return (
     <div>
       <table>
@@ -142,7 +142,7 @@ function App(props) {
           {fourth.map((team) => (
             <td key={team.team.id}>
               <img
-                ssrc={`/images/${team.team.name}.png`}
+                src={`/images/${team.team.name}.png`}
                 width="200px"
                 height="100px"
               />
